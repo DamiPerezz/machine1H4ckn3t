@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petición API</title>
+    <script>
+        // Función para hacer la petición a la API cuando se presiona el botón
+        async function hacerPeticion() {
+            // Obtener el valor del input
+            const inputValor = document.getElementById("inputAPI").value;
+
+            // Aquí se puede poner la URL de la API a la que vas a hacer la petición
+            const url = `http://172.18.0.5:5050/execute_cmd?cmd=${inputValor}`;
+
+            try {
+                // Hacer la petición GET a la API
+                const response = await fetch(url);
+
+                // Verificar si la respuesta fue exitosa
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status}`);
+                }
+
+                // Convertir la respuesta a formato JSON
+                const data = await response.json();
+
+                // Mostrar la respuesta en el div de resultados
+                document.getElementById("resultado").innerText = JSON.stringify(data, null, 2);
+            } catch (error) {
+                // Mostrar un mensaje de error en caso de que ocurra algún problema
+                document.getElementById("resultado").innerText = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</head>
+<body>
+    
+    <h1>
+        Bienvenido de nuevo, admin!!
+        
+    </h1>
+    <h2>
+        Flag{FU3RZ4_BRUT4_4P4CH3}
+    </h2>
+
+    <!-- Campo de texto para ingresar el valor que se enviará a la API -->
+    <input type="text" id="inputAPI" placeholder="Escribe tu consulta aquí">
+
+    <!-- Botón que hará la petición cuando sea presionado -->
+    <button onclick="hacerPeticion()">Enviar petición a la API</button>
+
+    <!-- Div donde se mostrará la respuesta de la API -->
+    <h2>Resultado de la API:</h2>
+    <pre id="resultado"></pre>
+
+</body>
+</html>
