@@ -1,13 +1,3 @@
-
-# Laboratorio en docker para practicas de equipo de ciberseguridad
-
-Entorno virtual creado en docker para practicar conceptos basicos de pentesting.
-
-## Instalacion
-
-git clone https://github.com/DamiPerezz/machine1H4ckn3t.git
-chmod 
-
 # Laboratorio en docker para practicas de equipo de ciberseguridad
 Entorno virtual creado en docker para practicar conceptos basicos de pentesting.
 
