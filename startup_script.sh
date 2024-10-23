@@ -14,6 +14,8 @@ limpiar(){
     sudo docker image rm maquina01:beta
     sudo docker image rm maquina01web:2
 
+    echo "Eliminando red virtual"
+    sudo docker network rm DockerRed > /dev/null 2>&1
     echo "Listo, ya puedes cerrar la terminal ;)"
    
     exit 0
